@@ -9,7 +9,8 @@
     systematically removes as many clues as possible while still keeping the
     solution unique. This means they may unexpectedly range between very easy
     and very difficult &mdash; please feel free to skip a puzzle if you're
-    stuck. I manually removed some that looked much too easy.
+    stuck. I sorted them by decreasing number of clues, hoping that might
+    reflect increasing difficulty.
   </p>
   <h1 class="text-lg font-bold">Rules</h1>
   <ol class="list-decimal">
