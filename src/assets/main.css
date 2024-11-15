@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-color-1 {
+  @apply bg-green-500;
+}
+
+.bg-color-2 {
+  @apply bg-sky-500;
+}
+
+.bg-color-3 {
+  @apply bg-red-500;
+}
+
+.bg-color-neg-1 {
+  @apply bg-pink-300;
+}
+
+.bg-color-neg-2 {
+  @apply bg-yellow-300;
+}
+
+.bg-color-neg-3 {
+  @apply bg-teal-300;
+}
