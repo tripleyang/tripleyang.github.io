@@ -13,7 +13,7 @@
     reflect increasing difficulty.
   </p>
   <h1 class="text-lg font-bold">Rules</h1>
-  <ol class="list-decimal">
+  <ol class="list-inside list-decimal">
     <li>Every cell must be filled with one of 3 colors.</li>
     <li>
       All cells of the same color must be connected orthogonally into a single
