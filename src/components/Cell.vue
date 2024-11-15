@@ -23,6 +23,12 @@ const onClick = (e: MouseEvent) => {
   if (e.button == 0) {
     if (props.state == colorStore.currentColor) {
       colorStore.nextColor();
+
+      if (colorStore.currentColor == 1) {
+        emit("stateChanged", undefined);
+
+        return;
+      }
     }
 
     let color = colorStore.currentColor;
