@@ -39,7 +39,6 @@ const isSolved = () => {
     for (let x = 0; x < props.puzzle.width; x++) {
       const c = getCell(x, y);
       if (c == undefined || c < 1) {
-        console.log("not filled");
         return false;
       }
 
@@ -71,14 +70,12 @@ const isSolved = () => {
 
       const topLeft = getCell(x - 1, y - 1);
       if (c == left && c == top && c == topLeft) {
-        console.log("2x2 square");
         return false;
       }
     }
   }
 
   const componentsSet = new Set(components.values());
-  console.log(Array.from(componentsSet.values()));
   return componentsSet.size == 3;
 };
 
