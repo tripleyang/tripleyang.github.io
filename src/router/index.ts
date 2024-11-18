@@ -12,11 +12,11 @@ const router = createRouter({
       component: AboutView,
     },
     {
-      path: "/triple-yang/:category",
+      path: "/yy3/:category",
       component: PuzzleListView,
     },
     {
-      path: "/triple-yang/puzzle/:puzzle",
+      path: "/yy3/puzzle/:puzzle",
       component: PuzzleView,
     },
   ],

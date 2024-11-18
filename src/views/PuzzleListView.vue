@@ -12,7 +12,7 @@ const storage = localStorage;
   <div class="grid grid-cols-10 gap-1">
     <RouterLink
       v-for="(puzzle, n) in puzzles"
-      :to="`/triple-yang/puzzle/${puzzle}`"
+      :to="`/yy3/puzzle/${puzzle}`"
       class="flex aspect-square flex-col items-center justify-center gap-1 rounded-md shadow-sm transition-all hover:shadow-md"
       :class="{
         'border border-lime-400 bg-lime-200':
