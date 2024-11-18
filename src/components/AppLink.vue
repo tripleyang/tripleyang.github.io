@@ -9,9 +9,8 @@ defineOptions({
 <template>
   <LiftHover>
     <a
-      class="font-semibold text-slate-700 transition-colors hover:text-black"
+      class="cursor-pointer font-semibold text-slate-700 transition-colors hover:text-black"
       v-bind="$attrs"
-      href="#!"
       ><slot />
     </a>
   </LiftHover>
