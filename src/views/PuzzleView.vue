@@ -2,9 +2,10 @@
 import { loadPuzzle } from "@/cells";
 import Board from "@/components/Board.vue";
 import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 
 const puzzleString = computed(() => route.params.puzzle as string);
 
@@ -30,4 +31,5 @@ const storage = localStorage;
       }
     "
   ></Board>
+  <a @click="router.back()" class="link">Back</a>
 </template>

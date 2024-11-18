@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.link {
+  @apply cursor-pointer font-semibold text-slate-700 transition-all hover:text-black;
+}
+
 .bg-color-1 {
   @apply bg-green-500;
 }
