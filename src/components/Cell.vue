@@ -2,7 +2,7 @@
 import type { CellState } from "@/cells";
 import { useCurrentColorStore } from "@/stores/currentColor";
 import { useKeyModifier } from "@vueuse/core";
-import { ref } from "vue";
+import { inject, ref, type Ref } from "vue";
 
 const emit = defineEmits<{
   (e: "stateChanged", state: CellState): void;
@@ -17,9 +17,12 @@ const colorStore = useCurrentColorStore();
 
 const negMode = useKeyModifier<boolean>("Shift", { initial: false });
 
-const onClick = (e: MouseEvent) => {
+const pointerState: Ref<boolean> = inject("pointerstate")!;
+
+const onDown = (e: PointerEvent) => {
   e.preventDefault();
 
+  console.log("DOWN");
   if (e.button == 0) {
     if (props.state == colorStore.currentColor) {
       colorStore.nextColor();
@@ -40,15 +43,23 @@ const onClick = (e: MouseEvent) => {
   } else if (e.button == 2) {
     emit("stateChanged", undefined);
   }
+
+  (e.target as Element).releasePointerCapture(e.pointerId);
 };
 
 const onContextMenu = (e: MouseEvent) => {
   e.preventDefault();
 };
 
-const onEnter = (e: MouseEvent) => {
+const onEnter = (e: PointerEvent) => {
   e.preventDefault();
 
+  console.log(pointerState.value);
+  if (pointerState.value == false) {
+    return;
+  }
+
+  console.log("ENTER");
   if ((e.buttons & 1) == 1) {
     let color = colorStore.currentColor;
     if (negMode.value) {
@@ -75,9 +86,9 @@ const onWheel = (e: WheelEvent) => {
 </script>
 <template>
   <div
-    class="group aspect-square flex-1 p-0.5"
-    @mousedown="onClick"
-    @mouseenter="onEnter"
+    class="group aspect-square flex-1 touch-none p-0.5"
+    @pointerdown="onDown"
+    @pointerover="onEnter"
     @contextmenu="onContextMenu"
     @wheel="onWheel"
   >

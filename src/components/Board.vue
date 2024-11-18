@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { provide, ref, watch } from "vue";
 import { type CellState, type Grid, type Puzzle } from "@/cells";
 import Cell from "@/components/Cell.vue";
 import AppButton from "@/components/AppButton.vue";
@@ -102,6 +102,19 @@ const reset = () => {
   localStorage.removeItem(`progress_state_${props.id}`);
   emits("unsolved");
 };
+
+const pointerState = ref(false);
+
+const onPointerDown = () => {
+  console.log("down");
+  pointerState.value = true;
+};
+const onPointerUp = () => {
+  console.log("up");
+  pointerState.value = false;
+};
+
+provide("pointerstate", pointerState);
 </script>
 <template>
   <div
@@ -109,6 +122,8 @@ const reset = () => {
     :class="{
       'outline outline-2 outline-offset-4 outline-lime-400': isSolvedRef,
     }"
+    @pointerdown="onPointerDown"
+    @pointerup="onPointerUp"
   >
     <div v-for="y in props.puzzle.height" class="flex flex-row">
       <Cell
