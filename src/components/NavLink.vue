@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { type RouterLinkProps } from "vue-router";
+import LiftHover from "./LiftHover.vue";
 
 const props = defineProps<RouterLinkProps>();
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 <template>
-  <RouterLink class="group font-semibold" v-slot="{ isActive }" :to="props.to">
-    <div
-      class="transition-all hover:text-black group-hover:-translate-y-0.5"
+  <RouterLink v-slot="{ isActive }" class="font-semibold" :to="props.to">
+    <LiftHover
+      class="transition-colors hover:text-black"
       :class="isActive ? 'text-slate-700' : 'text-slate-400'"
     >
       <slot />
-    </div>
+    </LiftHover>
   </RouterLink>
 </template>

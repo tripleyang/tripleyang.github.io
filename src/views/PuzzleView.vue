@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { loadPuzzle } from "@/cells";
+import AppLink from "@/components/AppLink.vue";
 import Board from "@/components/Board.vue";
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -31,5 +32,7 @@ const storage = localStorage;
       }
     "
   ></Board>
-  <a @click="router.back()" class="link">Back</a>
+  <div class="flex items-start">
+    <AppLink @click="router.back()"> Back </AppLink>
+  </div>
 </template>
