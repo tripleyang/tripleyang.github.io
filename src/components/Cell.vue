@@ -22,7 +22,6 @@ const pointerState: Ref<boolean> = inject("pointerstate")!;
 const onDown = (e: PointerEvent) => {
   e.preventDefault();
 
-  console.log("DOWN");
   if (e.button == 0) {
     if (props.state == colorStore.currentColor) {
       colorStore.nextColor();
@@ -54,12 +53,10 @@ const onContextMenu = (e: MouseEvent) => {
 const onEnter = (e: PointerEvent) => {
   e.preventDefault();
 
-  console.log(pointerState.value);
   if (pointerState.value == false) {
     return;
   }
 
-  console.log("ENTER");
   if ((e.buttons & 1) == 1) {
     let color = colorStore.currentColor;
     if (negMode.value) {

@@ -6,26 +6,18 @@ import AppButton from "@/components/AppButton.vue";
 
 const props = defineProps<{
   puzzle: Puzzle;
+  cells: Grid<CellState>;
   id: string;
 }>();
 
 const emits = defineEmits<{
   (e: "solved"): void;
-  (e: "unsolved"): void;
+  (e: "reset"): void;
+  (e: "cellChanged", x: number, y: number, state: CellState): void;
 }>();
 
-const saved_state = localStorage.getItem(`progress_state_${props.id}`);
-const cells = ref<Grid<CellState>>(saved_state ? JSON.parse(saved_state) : []);
-
-const saveToStorage = () => {
-  localStorage.setItem(
-    `progress_state_${props.id}`,
-    JSON.stringify(cells.value),
-  );
-};
-
 const getCell = (x: number, y: number) => {
-  return (props.puzzle.clues[x] || {})[y] || (cells.value[x] || {})[y];
+  return (props.puzzle.clues[x] || {})[y] || (props.cells[x] || {})[y];
 };
 
 const isClue = (x: number, y: number) => {
@@ -88,29 +80,16 @@ const checkSolved = () => {
   }
 };
 
-const setCell = (x: number, y: number, state: CellState) => {
-  cells.value[x] = cells.value[x] || {};
-  cells.value[x][y] = state;
-
-  saveToStorage();
-
-  checkSolved();
-};
-
 const reset = () => {
-  cells.value = [];
-  localStorage.removeItem(`progress_state_${props.id}`);
-  emits("unsolved");
+  emits("reset");
 };
 
 const pointerState = ref(false);
 
 const onPointerDown = () => {
-  console.log("down");
   pointerState.value = true;
 };
 const onPointerUp = () => {
-  console.log("up");
   pointerState.value = false;
 };
 
@@ -132,7 +111,8 @@ provide("pointerstate", pointerState);
         :state="getCell(x - 1, y - 1)"
         @state-changed="
           (state: CellState) => {
-            setCell(x - 1, y - 1, state);
+            emits('cellChanged', x - 1, y - 1, state);
+            checkSolved();
           }
         "
       ></Cell>
