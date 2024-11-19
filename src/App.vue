@@ -5,7 +5,7 @@ import NavLink from "./components/NavLink.vue";
 
 <template>
   <div class="flex h-screen flex-col items-center overflow-auto bg-slate-100">
-    <div class="flex w-full max-w-screen-md flex-col gap-4 px-2 pt-2">
+    <div class="flex w-full max-w-screen-md flex-col gap-4 px-2 pb-4 pt-2">
       <p>
         <span class="text-2xl font-bold">triple yang</span>
         <span class="pl-2 text-sm text-slate-600">by avi</span>
@@ -20,6 +20,7 @@ import NavLink from "./components/NavLink.vue";
         <NavLink to="/yy3/10x10">10x10</NavLink>
         <div class="flex-1" />
         <NavLink to="/">About</NavLink>
+        <NavLink to="/help">Help</NavLink>
       </nav>
 
       <RouterView />

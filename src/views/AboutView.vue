@@ -39,7 +39,7 @@ import IconExternalLink from "@/components/icons/IconExternalLink.vue";
     <li
       >There must be at least 1 cell of each color.
       <p class="text-sm text-slate-500">
-        (this is really a restriction of my generator; puzzles available here
+        (this is really a limitation of my generator; puzzles available here
         always have at least 1 clue of each color)
       </p>
     </li>
