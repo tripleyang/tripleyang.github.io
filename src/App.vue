@@ -12,13 +12,14 @@ import NavLink from "./components/NavLink.vue";
       </p>
 
       <nav class="flex gap-2">
-        <NavLink to="/">Welcome</NavLink>
         <NavLink to="/yy3/5x5">5x5</NavLink>
         <NavLink to="/yy3/6x6">6x6</NavLink>
         <NavLink to="/yy3/7x7">7x7</NavLink>
         <NavLink to="/yy3/8x8">8x8</NavLink>
         <NavLink to="/yy3/9x9">9x9</NavLink>
         <NavLink to="/yy3/10x10">10x10</NavLink>
+        <div class="flex-1" />
+        <NavLink to="/">About</NavLink>
       </nav>
 
       <RouterView />
