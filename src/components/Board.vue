@@ -83,17 +83,6 @@ const checkSolved = () => {
 const reset = () => {
   emits("reset");
 };
-
-const pointerState = ref(false);
-
-const onPointerDown = () => {
-  pointerState.value = true;
-};
-const onPointerUp = () => {
-  pointerState.value = false;
-};
-
-provide("pointerstate", pointerState);
 </script>
 <template>
   <div
@@ -101,8 +90,6 @@ provide("pointerstate", pointerState);
     :class="{
       'outline outline-2 outline-offset-4 outline-lime-400': isSolvedRef,
     }"
-    @pointerdown="onPointerDown"
-    @pointerup="onPointerUp"
   >
     <div v-for="y in props.puzzle.height" class="flex flex-row">
       <Cell

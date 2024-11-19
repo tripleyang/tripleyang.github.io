@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CellState } from "@/cells";
 import { useCurrentColorStore } from "@/stores/currentColor";
+import { usePointerState } from "@/usePointerState";
 import { useKeyModifier } from "@vueuse/core";
 import { inject, ref, type Ref } from "vue";
 
@@ -17,7 +18,7 @@ const colorStore = useCurrentColorStore();
 
 const negMode = useKeyModifier<boolean>("Shift", { initial: false });
 
-const pointerState: Ref<boolean> = inject("pointerstate")!;
+const pointerState = usePointerState();
 
 const onDown = (e: PointerEvent) => {
   e.preventDefault();
@@ -53,7 +54,7 @@ const onContextMenu = (e: MouseEvent) => {
 const onEnter = (e: PointerEvent) => {
   e.preventDefault();
 
-  if (pointerState.value == false) {
+  if (!pointerState.value[e.pointerId]) {
     return;
   }
 
