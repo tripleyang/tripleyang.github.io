@@ -313,6 +313,10 @@ import AppLink from "@/components/AppLink.vue";
         decrease by 1/2. Similarly, when the edge is added between two white
         vertices, both increase by 1.</p
       >
+      <p
+        >(now how to <em>discover</em> this formula is another story
+        entirely...)</p
+      >
     </details>
     <details>
       <summary>Proof, step 5</summary>
