@@ -111,14 +111,14 @@
     </details>
     <details>
       <summary>Hint 2</summary>
-      Consider <em>edges</em> (lines between cells). Some edges are between
-      cells of two different colors. We can label them according to these
-      colors: RG edges, RB edges, and GB edges. We can also color them with
-      Yellow, Magenta, and Cyan respectively.
+      Consider <em>edges</em> (lines between cells). We'll refer to an edge as a
+      <em>dividing edge</em> if it has 2 different colors to each side of it. We
+      can label them according to these colors: RG edges, RB edges, and GB
+      edges. We can also color them with Yellow, Magenta, and Cyan respectively.
     </details>
     <details>
       <summary>Hint 3</summary>
-      Triple points are points where edges of all 3 colors meet.
+      Triple points are points where 3 diving edges meet.
     </details>
     <details>
       <summary>Hint 4</summary>
@@ -126,12 +126,28 @@
       you can safely ignore the rule forbidding 2x2 squares of the same color.
     </details>
     <details>
-      <summary>Statement</summary>
-      <p>A puzzles have either 0 or 2 triple points.</p>
+      <summary>Hint 5</summary>
       <p
-        >AB puzzles have either 0 or 2 triple points, or instead a single
-        <em>quadruple point</em>, which is a point where 3 colors meet in a
-        checkerboard pattern.</p
+        >Oh, by the way, do you remember the checkerboard configuration from
+        Theorem 1? The vertex in the middle does touch all 3 colors, however, it
+        also meets 4 dividing edges.</p
+      >
+
+      <p
+        >From now on, we'll refer to such vertices as <em>quadruple points</em>,
+        and the term <em>triple point</em> will only be used for points that
+        meet 3 dividing edges. This distinction will be important.</p
+      >
+    </details>
+    <details>
+      <summary>Statement</summary>
+      <p
+        >A puzzles have either 0 triple points, 2 triple points, or 1 quadruple
+        point.</p
+      >
+      <p
+        >A puzzles have either 0 triple points, 2 triple points, or 1 quadruple
+        point.</p
       >
       <p>ABC puzzles always have 1 triple point.</p>
       <p>ABAC puzzles always have 0 triple points.</p>
