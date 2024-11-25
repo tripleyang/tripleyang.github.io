@@ -112,13 +112,13 @@
     <details>
       <summary>Hint 2</summary>
       Consider <em>edges</em> (lines between cells). We'll refer to an edge as a
-      <em>dividing edge</em> if it has 2 different colors to each side of it. We
-      can label them according to these colors: RG edges, RB edges, and GB
+      <em>splitting edge</em> if it has 2 different colors to each side of it.
+      We can label them according to these colors: RG edges, RB edges, and GB
       edges. We can also color them with Yellow, Magenta, and Cyan respectively.
     </details>
     <details>
       <summary>Hint 3</summary>
-      Triple points are points where 3 diving edges meet.
+      Triple points are points where 3 splitting edges meet.
     </details>
     <details>
       <summary>Hint 4</summary>
@@ -130,13 +130,13 @@
       <p
         >Oh, by the way, do you remember the checkerboard configuration from
         Theorem 1? The vertex in the middle does touch all 3 colors, however, it
-        also meets 4 dividing edges.</p
+        also meets 4 splitting edges.</p
       >
 
       <p
         >From now on, we'll refer to such vertices as <em>quadruple points</em>,
         and the term <em>triple point</em> will only be used for points that
-        meet 3 dividing edges. This distinction will be important.</p
+        meet 3 splitting edges. This distinction will be important.</p
       >
     </details>
     <details>
@@ -158,6 +158,12 @@
       <img src="/help/help3.png" />
       Prolonged contemplation will confirm these are the only possible
       configurations.
+    </details>
+  </section>
+  <section>
+    <h1>Theorem 4</h1>
+    <details>
+      <summary>Hint</summary>
     </details>
   </section>
 </template>
