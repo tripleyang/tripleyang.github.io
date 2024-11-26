@@ -201,21 +201,22 @@ import AppLink from "@/components/AppLink.vue";
         concept.</p
       >
       <p
-        ><b>Definition.</b> For a set of vertices, its <em>value</em> is the
-        integer number equal to B - W, where B is the number of black vertices
-        in the set, and W is the number of white vertices in the set.</p
+        ><b>Definition.</b> For a set of vertices, its
+        <em>characteristic</em> is the integer number equal to B - W, where B is
+        the number of black vertices in the set, and W is the number of white
+        vertices in the set.</p
       >
       <p
-        >In other words, each black vertex has a value of +1, and each white
-        vertex has a value of -1.</p
+        >In other words, each black vertex has characteristic +1, and each white
+        vertex has characteristic -1.</p
       >
       <p
-        ><b>Lemma 1.</b> The set of all vertices has a total value of +1 on Even
-        x Even boards, and 0 otherwise. Proof is left as an exercise for the
+        ><b>Lemma 1.</b> The set of all vertices has characteristic +1 on Even x
+        Even boards, and 0 otherwise. Proof is left as an exercise for the
         reader.</p
       >
       <p
-        ><b>Exercise.*</b> Use the concept of <em>value</em> to prove the Parity
+        ><b>Exercise.*</b> Use the concept of characteristic to prove the Parity
         Theorem for standard Yin-Yang. Expand it by exploring what happens on
         Odd x Odd boards.</p
       >
@@ -223,52 +224,54 @@ import AppLink from "@/components/AppLink.vue";
     <details>
       <summary>Proof, step 2</summary>
       <p
-        ><b>Lemma 2.</b> For any <em>chain of vertices</em>, its value only
-        depends on the color of its ends:</p
+        ><b>Lemma 2.</b> For any <em>chain of vertices</em>, its characteristic
+        only depends on the color of its ends:</p
       >
       <ol class="list-inside list-decimal">
-        <li>A chain of the form ⚫︎-○-⋯-⚫︎-○ has value 0.</li>
-        <li>A chain of the form ⚫︎-○-⋯-○-⚫︎ has value +1.</li>
-        <li>A chain of the form ○-⚫︎-⋯-⚫︎-○ has value -1.</li>
+        <li>A chain of the form ⚫︎-○-⋯-⚫︎-○ has characteristic 0.</li>
+        <li>A chain of the form ⚫︎-○-⋯-○-⚫︎ has characteristic +1.</li>
+        <li>A chain of the form ○-⚫︎-⋯-⚫︎-○ has characteristic -1.</li>
       </ol>
       <p>Proof is left as an exercise for the reader.</p>
       <p
         ><b>Corollary.</b> Consider a set of vertices formed by the vertices of
-        a graph, whose edges are (some of) the edges of the board. The value of
-        the set doesn't depend on the colors of the vertices of degree 2; it's
-        enough to know the colors of the <em>leaves</em> (vertices with 1 edge)
-        and the <em>junctions</em> (vertices with 3 or more edges), and which of
-        them are connected by chains.
+        a graph, whose edges are (some of) the edges of the board. The
+        characteristic of the set doesn't depend on the colors of the vertices
+        of degree 2; it's enough to know the colors of the
+        <em>leaves</em> (vertices with 1 edge) and the
+        <em>junctions</em> (vertices with 3 or more edges), and which of them
+        are connected by chains.
       </p>
       <p><b>Example.</b></p>
       <img src="/help/help6.png" />
       <p
         >This graph has 2 white leaves, 1 black leaf, and 1 white junction,
-        which have a combined value of -2. The rest of the vertices are parts of
-        chains that connect them; each chain will connect a leaf to the
+        which have a combined characteristic of -2. The rest of the vertices are
+        parts of chains that connect them; each chain will connect a leaf to the
         junction. The ends of the chain will have opposite colors to the colors
         of the leaf and junction they connect; therefore, there is 1
-        ⚫︎-○-⋯-⚫︎-○ chain of value 0 and 2 ⚫︎-○-⋯-○-⚫︎ chains of value +1
-        each. Adding everything together, we get -2 + 0 + 1 + 1 = 0. This is the
-        same result we get by applying Lemma 1 to the board of size 7x7.
+        ⚫︎-○-⋯-⚫︎-○ chain of characteristic 0 and 2 ⚫︎-○-⋯-○-⚫︎ chains of
+        characteristic +1 each. Adding everything together, we get -2 + 0 + 1 +
+        1 = 0. This is the same result we get by applying Lemma 1 to the board
+        of size 7x7.
       </p>
     </details>
     <details>
       <summary>Proof, step 3</summary>
       <p
         >We've now seen that vertices of degree 2 &mdash; those that belong to
-        chains &mdash; don't affect the total value of a graph.</p
+        chains &mdash; don't affect the total characteristic of a graph.</p
       >
       <p
         >To fully exploit this fact, we can simply replace any chain in a graph
         with a single edge. However, now the graph can have connected vertices
         of the same color, with edges actually implying vertices of the other
         color between them. To correct this, let's extend the definition of
-        value to graphs:</p
+        characteristic to graphs:</p
       >
       <p
-        ><b>Definition. </b> For a graph whose vertices are colored with Black
-        and White, it's <em>value</em> is defined as</p
+        ><b>Definition. </b> For a finite graph whose vertices are colored with
+        Black and White, it's <em>characteristic</em> is defined as</p
       >
       <p class="text-center">B - W - BB + WW,</p>
       <p
@@ -277,41 +280,43 @@ import AppLink from "@/components/AppLink.vue";
         respectively.</p
       >
       <p
-        ><b>Lemma 3.</b> The value of a graph doesn't change if any chain of
-        edges is replaced with a single edge, and the vertices between them are
-        deleted. It also doesn't change if any loop is discarded.</p
+        ><b>Lemma 3.</b> The characteristic of a graph doesn't change if any
+        chain of edges is replaced with a single edge, and the vertices between
+        them are deleted. It also doesn't change if any loop is discarded.</p
       >
       <p
-        >In other words, White-White edges are assigned value +1 and Black-Black
-        edges are assigned value -1 (note the opposite signs!). The graph from
-        the example can be simplified like as follows:</p
+        >In other words, White-White edges are assigned characteristic +1 and
+        Black-Black edges are assigned characteristic -1 (note the opposite
+        signs!). The graph from the example can be simplified like as
+        follows:</p
       >
       <img src="/help/help7.png" />
     </details>
     <details>
       <summary>Proof, step 4</summary>
       <p
-        ><b>Proposition 1. </b>The value of a graph is equal to the sum ∑v(1 -
-        d/2), taken over vertices of the graph, where v is the value of the
-        current vertex and d is its degree. Equivalently, the value is equal
-        to</p
+        ><b>Proposition 1. </b>The characteristic of a graph is equal to the sum
+        ∑c(1 - d/2), taken over vertices of the graph, where c is the
+        characteristic of the current vertex and d is its degree. Equivalently,
+        the characteristic is equal to</p
       >
-      <p class="text-center">1/2 v₁ - 1/2 v₃ - v₄ - ...,</p>
-      <p>where vᵢ is the total value of vertices of degree i.</p>
+      <p class="text-center">1/2 c₁ - 1/2 c₃ - c₄ - ...,</p>
+      <p>where vᵢ is the total characteristic of vertices of degree i.</p>
       <p
         ><b>Proof. </b> To prove this formula is correct, remove all edges of
         the graph first, so that the graph consists only of isolated vertices.
-        In this case, the value is ∑v, which matches the formula when d=0 for
-        all vertices. Next, rebuild the graph by adding edges and observe how
-        the value of the graph changes. Adding an edge increases the degree of 2
-        vertices by 1 each, and therefore (1 - d/2) is decreased by 1/2 for 2
-        terms in the sum. If the edge is added between two vertices of opposite
-        colors, the value is unchanged; ∑v(1 - d/2) is also unchanged, because 2
-        terms in the sum will change by -v/2 with v of opposite signs. If the
-        edge is added between two black vertices, the value is decreased by 1;
-        ∑v(1 - d/2) is also decreased by 1, with 2 terms in the sum will
-        decrease by 1/2. Similarly, when the edge is added between two white
-        vertices, both increase by 1.</p
+        In this case, the characteristic is ∑c, which matches the formula when
+        d=0 for all vertices. Next, rebuild the graph by adding edges and
+        observe how the characteristic of the graph changes. Adding an edge
+        increases the degree of 2 vertices by 1 each, and therefore (1 - d/2) is
+        decreased by 1/2 for 2 terms in the sum. If the edge is added between
+        two vertices of opposite colors, the characteristic is unchanged; ∑c(1 -
+        d/2) is also unchanged, because 2 terms in the sum will change by -c/2
+        with v of opposite signs. If the edge is added between two black
+        vertices, the characteristic is decreased by 1; ∑c(1 - d/2) is also
+        decreased by 1, with 2 terms in the sum will decrease by 1/2. Similarly,
+        when the edge is added between two white vertices, both increase by
+        1.</p
       >
       <p
         >(now how to <em>discover</em> this formula is another story
@@ -335,9 +340,9 @@ import AppLink from "@/components/AppLink.vue";
         and multiply the equation by -2. We obtain</p
       >
       <p><b>Parity Theorem. </b> For puzzles of Even x Even sizes, </p>
-      <p class="text-center">v₃ + 2v₄ = -2.</p>
+      <p class="text-center">c₃ + 2c₄ = -2.</p>
       <p>For puzzles of other sizes, </p>
-      <p class="text-center">v₃ + 2v₄ = 0.</p>
+      <p class="text-center">c₃ + 2c₄ = 0.</p>
     </details>
     <details>
       <summary>Corollaries</summary>
