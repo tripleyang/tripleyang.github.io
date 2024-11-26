@@ -342,14 +342,14 @@ import AppLink from "@/components/AppLink.vue";
     <details>
       <summary>Corollaries</summary>
       <p
-        >Denote by <em>generalized triple points</em> the vertices that are
-        either triple points or lie on the border and touch 2 different colors;
-        these are all points that have degree 3 in our graphs.</p
+        >We'll use the term <em>generalized triple point</em> for the vertices
+        that are either triple points or lie on the border and touch 2 different
+        colors; these are all points that have degree 3 in our graphs.</p
       >
       <p
         ><b>Corollary 1. </b> If the puzzle doesn't have a quadruple point, we
-        denote B and W the number of Black and White generalized triple points
-        respectively. Then</p
+        denote with B and W the number of Black and White generalized triple
+        points respectively. Then</p
       >
       <div class="flex flex-col">
         <div class="self-center">
@@ -358,10 +358,15 @@ import AppLink from "@/components/AppLink.vue";
         </div>
       </div>
       <p
-        ><b>Corollary 2.</b> Case A* is only possible on Even x Even boards. The
+        ><b>Corollary 2.</b> The formulas in Corollary 1 also apply to cases A*
+        and AB* if the quadruple point is counted as <em>two</em> generalized
+        triple points.</p
+      >
+      <p
+        ><b>Corollary 3.</b> Case A* is only possible on Even x Even boards. The
         quadruple point is always White.</p
       >
-      <p><b>Corollary 3.</b> Case AB* admits the following possibilities:</p>
+      <p><b>Corollary 4.</b> Case AB* admits the following possibilities:</p>
       <ol class="list-inside list-decimal">
         <li
           >Puzzle is Even x Even, quadruple point is White, triple points are 1
