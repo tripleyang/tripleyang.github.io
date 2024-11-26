@@ -301,7 +301,7 @@ import AppLink from "@/components/AppLink.vue";
         the characteristic is equal to</p
       >
       <p class="text-center">1/2 c₁ - 1/2 c₃ - c₄ - ...,</p>
-      <p>where vᵢ is the total characteristic of vertices of degree i.</p>
+      <p>where cᵢ is the total characteristic of vertices of degree i.</p>
       <p
         ><b>Proof. </b> To prove this formula is correct, remove all edges of
         the graph first, so that the graph consists only of isolated vertices.
